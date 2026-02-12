@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4FD1C5;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#4FD1C5;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#4FD1C5" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="500"/><line x1="40" y1="0" x2="40" y2="500"/>
+    <line x1="80" y1="0" x2="80" y2="500"/><line x1="120" y1="0" x2="120" y2="500"/>
+    <line x1="160" y1="0" x2="160" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="240" y1="0" x2="240" y2="500"/><line x1="280" y1="0" x2="280" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/><line x1="360" y1="0" x2="360" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/><line x1="440" y1="0" x2="440" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/><line x1="520" y1="0" x2="520" y2="500"/>
+    <line x1="560" y1="0" x2="560" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/><line x1="680" y1="0" x2="680" y2="500"/>
+    <line x1="720" y1="0" x2="720" y2="500"/><line x1="760" y1="0" x2="760" y2="500"/>
+    <line x1="800" y1="0" x2="800" y2="500"/><line x1="840" y1="0" x2="840" y2="500"/>
+    <line x1="880" y1="0" x2="880" y2="500"/><line x1="920" y1="0" x2="920" y2="500"/>
+    <line x1="960" y1="0" x2="960" y2="500"/><line x1="1024" y1="0" x2="1024" y2="500"/>
+    <line x1="0" y1="0" x2="1024" y2="0"/><line x1="0" y1="40" x2="1024" y2="40"/>
+    <line x1="0" y1="80" x2="1024" y2="80"/><line x1="0" y1="120" x2="1024" y2="120"/>
+    <line x1="0" y1="160" x2="1024" y2="160"/><line x1="0" y1="200" x2="1024" y2="200"/>
+    <line x1="0" y1="240" x2="1024" y2="240"/><line x1="0" y1="280" x2="1024" y2="280"/>
+    <line x1="0" y1="320" x2="1024" y2="320"/><line x1="0" y1="360" x2="1024" y2="360"/>
+    <line x1="0" y1="400" x2="1024" y2="400"/><line x1="0" y1="440" x2="1024" y2="440"/>
+    <line x1="0" y1="480" x2="1024" y2="480"/>
+  </g>
+
+  <!-- Top glow -->
+  <rect width="1024" height="250" fill="url(#glow)"/>
+
+  <!-- Terminal window mockup (right side) -->
+  <g transform="translate(600, 80)">
+    <!-- Terminal window frame -->
+    <rect x="0" y="0" width="360" height="240" rx="8" fill="#1e2030" stroke="#2a2e45" stroke-width="1.5"/>
+    <!-- Title bar -->
+    <rect x="0" y="0" width="360" height="28" rx="8" fill="#252840"/>
+    <rect x="0" y="16" width="360" height="12" fill="#252840"/>
+    <!-- Window buttons -->
+    <circle cx="16" cy="14" r="5" fill="#ff5f56"/>
+    <circle cx="34" cy="14" r="5" fill="#ffbd2e"/>
+    <circle cx="52" cy="14" r="5" fill="#27c93f"/>
+
+    <!-- Terminal text -->
+    <text font-family="monospace, Courier New" font-size="12" fill="#4FD1C5" x="12" y="52">user@server</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#888" x="116" y="52">:~$</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#e0e0e0" x="142" y="52">ssh deploy@prod</text>
+
+    <text font-family="monospace, Courier New" font-size="12" fill="#888" x="12" y="72">Connected to 10.0.1.42</text>
+
+    <text font-family="monospace, Courier New" font-size="12" fill="#4FD1C5" x="12" y="96">deploy@prod</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#888" x="116" y="96">:~$</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#e0e0e0" x="142" y="96">tmux attach -t main</text>
+
+    <text font-family="monospace, Courier New" font-size="12" fill="#27c93f" x="12" y="120">[tmux] session: main (3 windows)</text>
+
+    <text font-family="monospace, Courier New" font-size="12" fill="#4FD1C5" x="12" y="148">deploy@prod</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#888" x="116" y="148">:~$</text>
+    <text font-family="monospace, Courier New" font-size="12" fill="#e0e0e0" x="142" y="148">docker ps</text>
+
+    <text font-family="monospace, Courier New" font-size="11" fill="#888" x="12" y="168">CONTAINER   IMAGE       STATUS</text>
+    <text font-family="monospace, Courier New" font-size="11" fill="#e0e0e0" x="12" y="184">a1b2c3d     nginx       Up 12 days</text>
+    <text font-family="monospace, Courier New" font-size="11" fill="#e0e0e0" x="12" y="200">e4f5g6h     postgres    Up 12 days</text>
+    <text font-family="monospace, Courier New" font-size="11" fill="#e0e0e0" x="12" y="216">i7j8k9l     redis       Up 12 days</text>
+
+    <!-- Cursor -->
+    <rect x="12" y="224" width="8" height="2" fill="#4FD1C5" opacity="0.8"/>
+  </g>
+
+  <!-- App name and tagline (left side) -->
+  <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="56" fill="#ffffff" x="60" y="210">PocketSSH</text>
+
+  <!-- Teal accent line -->
+  <rect x="60" y="225" width="80" height="3" rx="1.5" fill="#4FD1C5"/>
+
+  <!-- Tagline -->
+  <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="400" font-size="22" fill="#a0a8c0" x="60" y="262">Your servers, one tap away</text>
+
+  <!-- Feature badges -->
+  <g transform="translate(60, 300)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="130" height="32" rx="16" fill="#4FD1C5" fill-opacity="0.12" stroke="#4FD1C5" stroke-opacity="0.3" stroke-width="1"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#4FD1C5" x="14" y="21">SSH Terminal</text>
+
+    <!-- Badge 2 -->
+    <rect x="142" y="0" width="158" height="32" rx="16" fill="#4FD1C5" fill-opacity="0.12" stroke="#4FD1C5" stroke-opacity="0.3" stroke-width="1"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#4FD1C5" x="156" y="21">Tmux Integration</text>
+
+    <!-- Badge 3 -->
+    <rect x="312" y="0" width="140" height="32" rx="16" fill="#4FD1C5" fill-opacity="0.12" stroke="#4FD1C5" stroke-opacity="0.3" stroke-width="1"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#4FD1C5" x="326" y="21">Key Auth</text>
+  </g>
+
+  <!-- Bottom edge line -->
+  <rect x="0" y="496" width="1024" height="4" fill="#4FD1C5" opacity="0.6"/>
+</svg>
