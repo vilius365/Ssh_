@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Claude Terminal</string>
+
+    <!-- Connection List Screen -->
+    <string name="connection_list_title">Claude Terminal</string>
+    <string name="settings">Settings</string>
+    <string name="add_connection">Add connection</string>
+    <string name="no_connections_yet">No connections yet</string>
+    <string name="add_your_first_connection">Add your first connection to get started</string>
+    <string name="add_connection_button">Add Connection</string>
+    <string name="quick_connect">Quick Connect</string>
+    <string name="quick_connect_description">Reconnect to last used server</string>
+    <string name="saved_connections">Saved Connections</string>
+    <string name="last_connected_ago">Last: %1$s</string>
+    <string name="sessions_count">%1$d sessions</string>
+    <string name="session_count_single">1 session</string>
+    <string name="edit_connection">Edit</string>
+    <string name="delete_connection">Delete</string>
+    <string name="delete_connection_title">Delete Connection</string>
+    <string name="delete_connection_message">Delete \"%1$s\"? This cannot be undone.</string>
+    <string name="cancel">Cancel</string>
+    <string name="connect">Connect</string>
+
+    <!-- Connection Editor Screen -->
+    <string name="new_connection">New Connection</string>
+    <string name="edit_connection_title">Edit Connection</string>
+    <string name="nickname">Nickname</string>
+    <string name="hostname">Hostname</string>
+    <string name="port">Port</string>
+    <string name="username">Username</string>
+    <string name="ssh_key">SSH Key</string>
+    <string name="no_key_selected">None selected</string>
+    <string name="select_ssh_key">Select SSH Key</string>
+    <string name="save">Save</string>
+    <string name="test_connection">Test Connection</string>
+    <string name="testing_connection">Testing\u2026</string>
+    <string name="test_success">Connected successfully</string>
+    <string name="test_failed">Connection failed: %1$s</string>
+    <string name="back">Back</string>
+    <string name="invalid_hostname">Enter a valid hostname or IP</string>
+    <string name="invalid_port">Port must be 1\u201365535</string>
+    <string name="field_required">Required</string>
+
+    <!-- Terminal Screen -->
+    <string name="terminal">Terminal</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connecting">Connecting\u2026</string>
+    <string name="reconnect">Tap to reconnect</string>
+    <string name="disconnect_title">Disconnect?</string>
+    <string name="disconnect_message">What would you like to do with this session?</string>
+    <string name="disconnect_action">Disconnect</string>
+    <string name="keep_in_background">Keep in Background</string>
+    <string name="open_sessions">Open sessions</string>
+    <string name="connection_failed_title">Connection Failed</string>
+    <string name="checking_host">Checking host\u2026</string>
+    <string name="dns_resolved">DNS resolved successfully</string>
+    <string name="dns_failed">Could not resolve hostname</string>
+    <string name="port_open">Port %1$d is open</string>
+    <string name="port_closed">Port %1$d is not responding</string>
+    <string name="retry">Retry</string>
+    <string name="go_back">Go Back</string>
+    <string name="font_size_indicator">%1$dsp</string>
+    <string name="copy">Copy</string>
+
+    <!-- Extra Keys -->
+    <string name="key_esc">ESC</string>
+    <string name="key_tab">TAB</string>
+    <string name="key_ctrl">CTRL</string>
+    <string name="key_alt">ALT</string>
+    <string name="key_home">HOME</string>
+    <string name="key_end">END</string>
+    <string name="key_pgup">PgU</string>
+    <string name="key_pgdn">PgD</string>
+
+    <!-- Session Manager -->
+    <string name="sessions_on_server">Sessions on %1$s</string>
+    <string name="sessions_title">Sessions</string>
+    <string name="no_active_sessions">No active sessions</string>
+    <string name="windows_count">%1$d windows</string>
+    <string name="window_count_single">1 window</string>
+    <string name="attached_ago">attached %1$s</string>
+    <string name="detached_ago">detached %1$s</string>
+    <string name="attach">Attach</string>
+    <string name="detach">Detach</string>
+    <string name="kill_session">Kill</string>
+    <string name="new_session">+ New Session</string>
+    <string name="kill_session_title">Kill Session</string>
+    <string name="kill_session_message">Kill session \"%1$s\"? This will close all windows and processes.</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="appearance_section">APPEARANCE</string>
+    <string name="terminal_section">TERMINAL</string>
+    <string name="keys_section">KEYS</string>
+    <string name="about_section">ABOUT</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_light">Light</string>
+    <string name="font_family">Font Family</string>
+    <string name="font_size">Font Size</string>
+    <string name="font_preview_line1">user@server:~$ ls -la</string>
+    <string name="font_preview_line2">drwxr-xr-x  2 user user 4096 Jan 01 12:00 .</string>
+    <string name="font_preview_line3">-rw-r--r--  1 user user  220 Jan 01 12:00 .bashrc</string>
+    <string name="scrollback_lines">Scrollback Lines</string>
+    <string name="bell">Bell</string>
+    <string name="bell_vibrate">Vibrate</string>
+    <string name="bell_sound">Sound</string>
+    <string name="bell_none">None</string>
+    <string name="manage_ssh_keys">Manage SSH Keys</string>
+    <string name="version_format">Version %1$s</string>
+    <string name="open_source_licenses">Open Source Licenses</string>
+
+    <!-- Key Manager Screen -->
+    <string name="ssh_keys_title">SSH Keys</string>
+    <string name="no_ssh_keys">No SSH keys stored</string>
+    <string name="import_key">Import Key</string>
+    <string name="generate_key">Generate Key</string>
+    <string name="key_fingerprint">%1$s</string>
+    <string name="key_type_format">%1$s</string>
+    <string name="delete_key_title">Delete Key</string>
+    <string name="delete_key_message">Delete key \"%1$s\"? Connections using this key will no longer authenticate.</string>
+    <string name="delete">Delete</string>
+    <string name="generate_key_title">Generate SSH Key</string>
+    <string name="import_key_title">Import SSH Key</string>
+    <string name="key_name">Key Name</string>
+    <string name="key_algorithm">Algorithm</string>
+    <string name="ed25519_description">Modern, fast, recommended</string>
+    <string name="rsa_description">Wide compatibility, slower</string>
+    <string name="passphrase_optional">Passphrase (if encrypted)</string>
+    <string name="import_action">Import</string>
+</resources>

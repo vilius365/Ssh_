@@ -1,0 +1,26 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.log
+*.tmp
+bin/
+gen/
+out/
+.navigation/
+*.hprof
+
+# App-specific
+/app/build
+/app/release
