@@ -1,4 +1,4 @@
-# QA Report: Claude Terminal Android SSH App
+# QA Report: PocketSSH Android SSH App
 
 **QA Engineer**: QA Agent
 **Date**: 2026-02-11
@@ -57,7 +57,7 @@ All 45 source files are in the correct packages matching their directory structu
 
 | Package | Files | Status |
 |---------|-------|--------|
-| `com.remoteclaude.app` | `ClaudeTerminalApp.kt`, `MainActivity.kt` | OK |
+| `com.remoteclaude.app` | `PocketSshApp.kt`, `MainActivity.kt` | OK |
 | `com.remoteclaude.app.data.db` | `AppDatabase.kt`, `ConnectionProfileDao.kt`, `ConnectionProfileEntity.kt` | OK |
 | `com.remoteclaude.app.data.model` | `ConnectionProfile.kt`, `TmuxSession.kt` | OK |
 | `com.remoteclaude.app.data.repository` | `ConnectionRepository.kt`, `ConnectionRepositoryImpl.kt` | OK |

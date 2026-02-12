@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-ClaudeTerminal is an Android SSH terminal emulator app built with Jetpack Compose. It connects to remote servers via SSH, renders terminal output using the Termux terminal emulator library, and supports tmux session management.
+PocketSSH is an Android SSH terminal emulator app built with Jetpack Compose. It connects to remote servers via SSH, renders terminal output using the Termux terminal emulator library, and supports tmux session management.
 
 ## Build & Test Commands
 

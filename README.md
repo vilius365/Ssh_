@@ -1,4 +1,4 @@
-# ClaudeTerminal
+# PocketSSH
 
 An Android SSH terminal emulator built with Jetpack Compose.
 

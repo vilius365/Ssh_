@@ -1,4 +1,4 @@
-# Security Review: Claude Terminal Android SSH App
+# Security Review: PocketSSH Android SSH App
 
 > **Reviewer**: Security Review Agent
 > **Date**: 2026-02-11

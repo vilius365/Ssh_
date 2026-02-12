@@ -1,4 +1,4 @@
-# UI/UX Design Specification: Claude Terminal (Android SSH App)
+# UI/UX Design Specification: PocketSSH (Android SSH App)
 
 **Version**: 1.0
 **Target**: Android (min SDK 29), Kotlin, Jetpack Compose, Material 3
@@ -225,7 +225,7 @@ labelMedium:   12sp / Medium    (chips, badges)
 **Layout**:
 ```
 +------------------------------------------+
-| Claude Terminal              [gear icon]  |   <- TopAppBar (small)
+| PocketSSH              [gear icon]  |   <- TopAppBar (small)
 +------------------------------------------+
 |                                           |
 | [  Quick Connect: dev-server  ] [->]      |   <- Prominent quick-connect card
@@ -257,7 +257,7 @@ labelMedium:   12sp / Medium    (chips, badges)
 
 **Components**:
 
-- **TopAppBar**: Small Material 3 top app bar. Title "Claude Terminal". Settings gear icon on the right. No navigation icon (this is the root screen).
+- **TopAppBar**: Small Material 3 top app bar. Title "PocketSSH". Settings gear icon on the right. No navigation icon (this is the root screen).
 - **Quick Connect Card**: Elevated card at the top. Shows the last-used connection. Tapping it immediately connects and attaches to the most recent tmux session. Shows connection nickname, host, and "Last: X ago" timestamp. Right arrow icon indicates immediate action. This card is hidden if no connections exist yet.
 - **Connection Cards**: Standard Material 3 outlined cards in a LazyColumn. Each card shows:
   - Nickname (titleMedium, monospace)
@@ -638,7 +638,7 @@ For advanced users, each key supports swipe gestures for secondary actions:
 
 ```
 App
-├── ClaudeTerminalTheme (MaterialTheme wrapper)
+├── PocketSshTheme (MaterialTheme wrapper)
 │   ├── NavHost
 │   │   ├── ConnectionListScreen
 │   │   │   ├── TopAppBar

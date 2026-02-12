@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Claude Terminal</string>
+    <string name="app_name">PocketSSH</string>
 
     <!-- Connection List Screen -->
-    <string name="connection_list_title">Claude Terminal</string>
+    <string name="connection_list_title">PocketSSH</string>
     <string name="settings">Settings</string>
     <string name="add_connection">Add connection</string>
     <string name="no_connections_yet">No connections yet</string>

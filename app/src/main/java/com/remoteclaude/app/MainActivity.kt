@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.remoteclaude.app.ui.navigation.NavGraph
-import com.remoteclaude.app.ui.theme.ClaudeTerminalTheme
+import com.remoteclaude.app.ui.theme.PocketSshTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ClaudeTerminalTheme {
+            PocketSshTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     NavGraph()
                 }
