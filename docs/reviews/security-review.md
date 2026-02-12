@@ -2,7 +2,7 @@
 
 > **Reviewer**: Security Review Agent
 > **Date**: 2026-02-11
-> **Scope**: Full codebase under `app/src/main/java/com/remoteclaude/app/` plus XML configuration and build files
+> **Scope**: Full codebase under `app/src/main/java/com/pocketssh/app/` plus XML configuration and build files
 > **Status**: Initial review
 
 ---
@@ -19,7 +19,7 @@ However, there is one **Critical** finding (the TOFU host key verifier auto-acce
 
 ### C-1: Host Key Verification Completely Disabled (MITM Vulnerability)
 
-**File**: `app/src/main/java/com/remoteclaude/app/ssh/SshManagerImpl.kt:184-199`
+**File**: `app/src/main/java/com/pocketssh/app/ssh/SshManagerImpl.kt:184-199`
 **Severity**: CRITICAL
 
 The `TofuHostKeyVerifier` unconditionally returns `true` for all host keys:
@@ -47,7 +47,7 @@ The TODO comment acknowledges this, but shipping this means:
 
 ### H-1: Command Injection via Unvalidated Session Names in TerminalViewModel
 
-**File**: `app/src/main/java/com/remoteclaude/app/ui/terminal/TerminalViewModel.kt:204-224`
+**File**: `app/src/main/java/com/pocketssh/app/ui/terminal/TerminalViewModel.kt:204-224`
 **Severity**: HIGH
 
 `TmuxManagerImpl.getAttachCommand()` and `killSession()` correctly validate session names against `SESSION_NAME_REGEX` (`^[a-zA-Z0-9._-]+$`). However, `TerminalViewModel` bypasses `TmuxManager` entirely and constructs shell commands by string interpolation with unvalidated input:
@@ -76,7 +76,7 @@ While `sessionName` currently originates from `refreshSessions()` parsing of tmu
 
 ### H-2: Biometric Authentication Not Enforced for Key Access
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:191-197`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:191-197`
 **Severity**: HIGH
 
 The `BiometricHelper` interface and implementation exist, but biometric authentication is never actually invoked before decrypting private keys. `getDecryptedPrivateKey()` directly calls `aead.decrypt()` without any biometric gate:
@@ -102,7 +102,7 @@ The Tink AEAD master key in Android Keystore is also not configured with `setUse
 
 ### H-3: Empty ByteArray Used as Key When No SSH Key Selected
 
-**File**: `app/src/main/java/com/remoteclaude/app/ui/terminal/TerminalViewModel.kt:77-81`
+**File**: `app/src/main/java/com/pocketssh/app/ui/terminal/TerminalViewModel.kt:77-81`
 **Severity**: HIGH
 
 When no SSH key is configured or when key retrieval returns null, the code passes an empty `ByteArray(0)` to `sshManager.connect()`:
@@ -123,7 +123,7 @@ The same pattern exists in `ConnectionEditorViewModel.kt:186`. This has two prob
 
 ### H-4: Database Not Encrypted
 
-**File**: `app/src/main/java/com/remoteclaude/app/di/AppModule.kt:42-49`
+**File**: `app/src/main/java/com/pocketssh/app/di/AppModule.kt:42-49`
 **Severity**: HIGH
 
 The Room database `claude_terminal.db` stores connection profiles including hostnames, usernames, ports, and SSH key IDs in plaintext SQLite. While the database is in app-internal storage (sandboxed), it is vulnerable to extraction on rooted devices and through ADB backup (though `allowBackup="false"` mitigates the backup vector).
@@ -149,7 +149,7 @@ Connection metadata (which servers a user connects to, usernames, timing pattern
 
 ### M-1: FLAG_SECURE Not Applied to Any Screen
 
-**File**: `app/src/main/java/com/remoteclaude/app/MainActivity.kt`
+**File**: `app/src/main/java/com/pocketssh/app/MainActivity.kt`
 **Severity**: MEDIUM
 
 The security research document (section 7.3) recommends applying `FLAG_SECURE` to screens that display sensitive key material (key generation, key import, key details). None of the activities or screens apply this flag. This means:
@@ -161,7 +161,7 @@ The security research document (section 7.3) recommends applying `FLAG_SECURE` t
 
 ### M-2: Key Metadata File Not Encrypted
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:266-267, 332-346`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:266-267, 332-346`
 **Severity**: MEDIUM
 
 The `key_metadata.json` file stores key IDs, names, algorithms, fingerprints, and creation timestamps in plaintext JSON:
@@ -181,7 +181,7 @@ While the private key bytes themselves are encrypted, the metadata reveals:
 
 ### M-3: Public Keys Stored in Plaintext
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:263-264, 274-276`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:263-264, 274-276`
 **Severity**: MEDIUM
 
 Public key files (`$keyId.pub`) are stored as plaintext in the `ssh_keys/` directory:
@@ -204,7 +204,7 @@ Public keys are not secret, but their presence alongside encrypted private key f
 
 ### M-4: DataStore Preferences Not Encrypted
 
-**File**: `app/src/main/java/com/remoteclaude/app/di/AppModule.kt:32-34`
+**File**: `app/src/main/java/com/pocketssh/app/di/AppModule.kt:32-34`
 **Severity**: MEDIUM
 
 The DataStore preferences file `claude_terminal_settings` stores user settings in plaintext. Currently it only stores non-sensitive settings (theme, font size, bell mode), but any future expansion could inadvertently store sensitive data here.
@@ -219,7 +219,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
 
 ### M-5: No Connection Timeout Configuration or Keepalive
 
-**File**: `app/src/main/java/com/remoteclaude/app/ssh/SshManagerImpl.kt:23-24`
+**File**: `app/src/main/java/com/pocketssh/app/ssh/SshManagerImpl.kt:23-24`
 **Severity**: MEDIUM
 
 Connection and key exchange timeouts are hardcoded at 30 seconds each, and there is no SSH keepalive configured:
@@ -235,7 +235,7 @@ Without SSH keepalive, a stale connection may not be detected until the user tri
 
 ### M-6: Secure Deletion Only Overwrites Once
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:282-296`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:282-296`
 **Severity**: MEDIUM
 
 The secure deletion implementation overwrites with random data once:
@@ -259,7 +259,7 @@ The code itself acknowledges that this has limited effectiveness on flash storag
 
 ### L-1: Key IDs Are UUIDs Logged at INFO Level
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:106, 144, 180, 222, 235`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:106, 144, 180, 222, 235`
 **Severity**: LOW
 
 Key operations log the key ID at INFO level:
@@ -276,7 +276,7 @@ While key IDs are not secret, they appear in the system logcat which other apps 
 
 ### L-2: Host Key Fingerprint Logged at INFO Level
 
-**File**: `app/src/main/java/com/remoteclaude/app/ssh/SshManagerImpl.kt:191-195`
+**File**: `app/src/main/java/com/pocketssh/app/ssh/SshManagerImpl.kt:191-195`
 **Severity**: LOW
 
 The TOFU verifier logs the full host key fingerprint at INFO level:
@@ -291,7 +291,7 @@ This reveals which servers the user connects to in the logcat.
 
 ### L-3: No Input Length Limits on Connection Editor Fields
 
-**File**: `app/src/main/java/com/remoteclaude/app/ui/connections/ConnectionEditorViewModel.kt:107-135`
+**File**: `app/src/main/java/com/pocketssh/app/ui/connections/ConnectionEditorViewModel.kt:107-135`
 **Severity**: LOW
 
 The hostname, username, and nickname fields have no maximum length validation. While these are stored locally and not directly exploitable, extremely long values could cause UI rendering issues or database bloat.
@@ -300,7 +300,7 @@ The hostname, username, and nickname fields have no maximum length validation. W
 
 ### L-4: PEM Parsing Error Messages May Leak Information
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:394, 418-420, 447-449`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:394, 418-420, 447-449`
 **Severity**: LOW
 
 PEM parsing error messages include the class name of the unsupported PEM object:
@@ -317,7 +317,7 @@ This is fine for user-facing error messages but should not be exposed in product
 
 ### L-5: TerminalBridgeImpl CoroutineScope Never Cancelled
 
-**File**: `app/src/main/java/com/remoteclaude/app/terminal/TerminalBridgeImpl.kt:43`
+**File**: `app/src/main/java/com/pocketssh/app/terminal/TerminalBridgeImpl.kt:43`
 **Severity**: LOW
 
 The `TerminalBridgeImpl` creates its own `CoroutineScope` that is never explicitly cancelled:
@@ -336,7 +336,7 @@ When `detach()` is called, only the `readJob` is cancelled, but the scope itself
 
 ### P-1: Private Keys Encrypted at Rest with Tink AEAD
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:243-251, 269-272`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:243-251, 269-272`
 **Status**: PASSED
 
 SSH private keys are encrypted using Google Tink `AES256_GCM` with a master key stored in Android Keystore (`android-keystore://ssh_master_key`). The associated data (keyId) binds each ciphertext to its specific key, preventing ciphertext substitution attacks.
@@ -364,7 +364,7 @@ The `importKey()` function also zeroes the passphrase `CharArray` and the interm
 
 ### P-3: Passphrase Handled as CharArray, Zeroed After Use
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:185`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:185`
 **Status**: PASSED
 
 Passphrases are declared as `CharArray` (not `String`) and zeroed in finally blocks:
@@ -419,7 +419,7 @@ Only `MainActivity` is exported (with `android:exported="true"`), and it has onl
 
 ### P-8: tmux Session Name Validation (in TmuxManagerImpl)
 
-**File**: `app/src/main/java/com/remoteclaude/app/session/TmuxManagerImpl.kt:25, 62-63, 70-71`
+**File**: `app/src/main/java/com/pocketssh/app/session/TmuxManagerImpl.kt:25, 62-63, 70-71`
 **Status**: PASSED
 
 `TmuxManagerImpl` validates session names against a strict allowlist regex before constructing shell commands:
@@ -437,7 +437,7 @@ This correctly prevents shell injection through session names -- but only when `
 
 ### P-9: SSH Connection Parameters Validated
 
-**File**: `app/src/main/java/com/remoteclaude/app/ui/connections/ConnectionEditorViewModel.kt:37-56`
+**File**: `app/src/main/java/com/pocketssh/app/ui/connections/ConnectionEditorViewModel.kt:37-56`
 **Status**: PASSED
 
 The connection editor validates:
@@ -447,14 +447,14 @@ The connection editor validates:
 
 ### P-10: Ed25519 and RSA Key Generation Using SecureRandom
 
-**File**: `app/src/main/java/com/remoteclaude/app/security/KeyStorageManagerImpl.kt:83, 117-119`
+**File**: `app/src/main/java/com/pocketssh/app/security/KeyStorageManagerImpl.kt:83, 117-119`
 **Status**: PASSED
 
 Both Ed25519 and RSA key generation use `java.security.SecureRandom`, which on Android is backed by `/dev/urandom` and provides cryptographically secure randomness.
 
 ### P-11: Room Database Does Not Store Sensitive Key Material
 
-**File**: `app/src/main/java/com/remoteclaude/app/data/db/ConnectionProfileEntity.kt`
+**File**: `app/src/main/java/com/pocketssh/app/data/db/ConnectionProfileEntity.kt`
 **Status**: PASSED
 
 The Room database stores only connection metadata (hostname, port, username, key ID reference). SSH private key bytes are never stored in the database. The `sshKeyId` field is a UUID reference, not key material.

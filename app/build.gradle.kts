@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    namespace = "com.remoteclaude.app"
+    namespace = "com.pocketssh.app"
     compileSdk = 35
     buildToolsVersion = "35.0.0"
 
     defaultConfig {
-        applicationId = "com.remoteclaude.app"
+        applicationId = "com.pocketssh.app"
         minSdk = 29
         targetSdk = 35
         versionCode = 1

@@ -57,7 +57,7 @@ ConnectionList (start) -> ConnectionEditor | Terminal | Settings -> KeyManager
 ## Project Structure
 
 ```
-app/src/main/java/com/remoteclaude/app/
+app/src/main/java/com/pocketssh/app/
   data/       Room database, entities, DAOs, repository
   di/         Hilt modules
   security/   SSH key management with Android Keystore

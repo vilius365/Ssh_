@@ -57,20 +57,20 @@ All 45 source files are in the correct packages matching their directory structu
 
 | Package | Files | Status |
 |---------|-------|--------|
-| `com.remoteclaude.app` | `PocketSshApp.kt`, `MainActivity.kt` | OK |
-| `com.remoteclaude.app.data.db` | `AppDatabase.kt`, `ConnectionProfileDao.kt`, `ConnectionProfileEntity.kt` | OK |
-| `com.remoteclaude.app.data.model` | `ConnectionProfile.kt`, `TmuxSession.kt` | OK |
-| `com.remoteclaude.app.data.repository` | `ConnectionRepository.kt`, `ConnectionRepositoryImpl.kt` | OK |
-| `com.remoteclaude.app.di` | `AppModule.kt` | OK |
-| `com.remoteclaude.app.security` | `BiometricHelper.kt`, `BiometricHelperImpl.kt`, `KeyStorageManager.kt`, `KeyStorageManagerImpl.kt`, `SshKeyManagerAdapter.kt` | OK |
-| `com.remoteclaude.app.session` | `TmuxManager.kt`, `TmuxManagerImpl.kt` | OK |
-| `com.remoteclaude.app.ssh` | `SshConnectionState.kt`, `SshKeyManager.kt`, `SshManager.kt`, `SshManagerImpl.kt` | OK |
-| `com.remoteclaude.app.terminal` | `TerminalBridge.kt`, `TerminalBridgeImpl.kt`, `TerminalSessionManager.kt`, `TerminalSessionManagerImpl.kt`, `TerminalState.kt` | OK |
-| `com.remoteclaude.app.ui.connections` | `ConnectionEditorScreen.kt`, `ConnectionEditorViewModel.kt`, `ConnectionListScreen.kt`, `ConnectionListViewModel.kt` | OK |
-| `com.remoteclaude.app.ui.navigation` | `NavGraph.kt`, `Screen.kt` | OK |
-| `com.remoteclaude.app.ui.settings` | `KeyManagerScreen.kt`, `KeyManagerViewModel.kt`, `SettingsScreen.kt`, `SettingsViewModel.kt` | OK |
-| `com.remoteclaude.app.ui.terminal` | `ExtraKeysBar.kt`, `SessionManagerSheet.kt`, `TerminalCanvas.kt`, `TerminalScreen.kt`, `TerminalViewModel.kt` | OK |
-| `com.remoteclaude.app.ui.theme` | `Color.kt`, `Theme.kt`, `Type.kt` | OK |
+| `com.pocketssh.app` | `PocketSshApp.kt`, `MainActivity.kt` | OK |
+| `com.pocketssh.app.data.db` | `AppDatabase.kt`, `ConnectionProfileDao.kt`, `ConnectionProfileEntity.kt` | OK |
+| `com.pocketssh.app.data.model` | `ConnectionProfile.kt`, `TmuxSession.kt` | OK |
+| `com.pocketssh.app.data.repository` | `ConnectionRepository.kt`, `ConnectionRepositoryImpl.kt` | OK |
+| `com.pocketssh.app.di` | `AppModule.kt` | OK |
+| `com.pocketssh.app.security` | `BiometricHelper.kt`, `BiometricHelperImpl.kt`, `KeyStorageManager.kt`, `KeyStorageManagerImpl.kt`, `SshKeyManagerAdapter.kt` | OK |
+| `com.pocketssh.app.session` | `TmuxManager.kt`, `TmuxManagerImpl.kt` | OK |
+| `com.pocketssh.app.ssh` | `SshConnectionState.kt`, `SshKeyManager.kt`, `SshManager.kt`, `SshManagerImpl.kt` | OK |
+| `com.pocketssh.app.terminal` | `TerminalBridge.kt`, `TerminalBridgeImpl.kt`, `TerminalSessionManager.kt`, `TerminalSessionManagerImpl.kt`, `TerminalState.kt` | OK |
+| `com.pocketssh.app.ui.connections` | `ConnectionEditorScreen.kt`, `ConnectionEditorViewModel.kt`, `ConnectionListScreen.kt`, `ConnectionListViewModel.kt` | OK |
+| `com.pocketssh.app.ui.navigation` | `NavGraph.kt`, `Screen.kt` | OK |
+| `com.pocketssh.app.ui.settings` | `KeyManagerScreen.kt`, `KeyManagerViewModel.kt`, `SettingsScreen.kt`, `SettingsViewModel.kt` | OK |
+| `com.pocketssh.app.ui.terminal` | `ExtraKeysBar.kt`, `SessionManagerSheet.kt`, `TerminalCanvas.kt`, `TerminalScreen.kt`, `TerminalViewModel.kt` | OK |
+| `com.pocketssh.app.ui.theme` | `Color.kt`, `Theme.kt`, `Type.kt` | OK |
 
 No orphaned or duplicate files found. All packages have the expected files.
 

@@ -19,7 +19,7 @@ PocketSSH is an Android SSH terminal emulator app built with Jetpack Compose. It
 ./gradlew testDebugUnitTest
 
 # Run a single test class
-./gradlew testDebugUnitTest --tests "com.remoteclaude.app.data.repository.ConnectionRepositoryImplTest"
+./gradlew testDebugUnitTest --tests "com.pocketssh.app.data.repository.ConnectionRepositoryImplTest"
 
 # Run release build (minified, shrunk)
 ./gradlew assembleRelease
@@ -54,7 +54,7 @@ User selects profile → TerminalViewModel
 | `KeyStorageManager` | `KeyStorageManagerImpl` | Singleton | SSH key gen/import/storage (Android Keystore + AES-256-GCM) |
 | `TmuxManager` | `TmuxManagerImpl` | Singleton | Remote tmux session queries via `SshManager.executeCommand()` |
 
-### Package Layout (`app/src/main/java/com/remoteclaude/app/`)
+### Package Layout (`app/src/main/java/com/pocketssh/app/`)
 
 - `data/` - Room database (`claude_terminal.db`, version 2), entities, DAOs, repository
 - `di/` - Hilt modules (`@Provides` for Room/DataStore, `@Binds` for all interfaces)

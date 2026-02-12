@@ -2,7 +2,7 @@
 
 **Reviewer**: Code Reviewer Agent
 **Date**: 2026-02-11
-**Scope**: Full codebase review - 40 Kotlin source files under `app/src/main/java/com/remoteclaude/app/`
+**Scope**: Full codebase review - 40 Kotlin source files under `app/src/main/java/com/pocketssh/app/`
 
 ---
 
