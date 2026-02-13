@@ -21,6 +21,10 @@ out/
 .navigation/
 *.hprof
 
+# Signing
+*.keystore
+*.jks
+
 # App-specific
 /app/build
 /app/release
