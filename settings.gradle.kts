@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ClaudeTerminal"
+rootProject.name = "PocketSSH"
 include(":app")

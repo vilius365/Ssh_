@@ -7,7 +7,7 @@
 | **App name** | PocketSSH |
 | **Package name** | com.pocketssh.app |
 | **Category** | Tools |
-| **Contact email** | pocketssh@example.com |
+| **Contact email** | vilius365@gmail.com |
 | **Default language** | English (US) |
 
 ## Content Rating Questionnaire (IARC)

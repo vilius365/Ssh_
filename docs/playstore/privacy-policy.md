@@ -62,7 +62,7 @@ If this privacy policy is updated, the new version will be posted here with a re
 If you have questions about this privacy policy, contact:
 
 **PocketSSH Developer**
-Email: pocketssh@example.com
+Email: vilius365@gmail.com
 
 ## Open Source
 

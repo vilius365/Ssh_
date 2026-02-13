@@ -10,10 +10,6 @@
 -keep class org.bouncycastle.** { *; }
 -dontwarn org.bouncycastle.**
 
-# Google Tink
--keep class com.google.crypto.tink.** { *; }
--dontwarn com.google.crypto.tink.**
-
 # Room
 -keep class * extends androidx.room.RoomDatabase
 -dontwarn androidx.room.paging.**
