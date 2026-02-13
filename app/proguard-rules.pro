@@ -10,6 +10,11 @@
 -keep class org.bouncycastle.** { *; }
 -dontwarn org.bouncycastle.**
 
+# Google Tink (transitive dependency via ConnectBot sshlib)
+-keep class com.google.crypto.tink.** { *; }
+-dontwarn com.google.crypto.tink.**
+-dontwarn com.google.errorprone.annotations.**
+
 # Room
 -keep class * extends androidx.room.RoomDatabase
 -dontwarn androidx.room.paging.**
